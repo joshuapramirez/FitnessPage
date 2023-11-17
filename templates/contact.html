@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+
+{% block content %}
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>Have a question or want to learn more about our services? Fill out the form below and we'll get back to you as soon as possible.</p>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section class="contact">
+    <div class="container">
+      <form method="post" action="{{ url_for('contact') }}">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" id="name" name="name" maxlength="50" placeholder="Enter your name">
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" name="email" maxlength="30" placeholder="Enter your email">
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{10,15}" maxlength="15" placeholder="Enter your phone number">
+        </div>
+        <div class="form-group">
+          <label for="goals">Goals</label>
+          <textarea class="form-control" id="goals" name="goals" rows="5" maxlength="250" placeholder="Enter your goals, and any other additional info"></textarea>
+          <p id="char-count"></p>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <script>
+          var nameInput = document.getElementById("name");
+          var emailInput = document.getElementById("email");
+          var phoneInput = document.getElementById("phone");
+          var goalsInput = document.getElementById("goals");
+          var charCount = document.getElementById("char-count");
+          var limit = {
+            name: 50,
+            email: 30,
+            phone: 15,
+            goals: 250
+          };
+          nameInput.addEventListener("input", function() {
+            if (nameInput.value.length > limit.name) {
+              nameInput.value = nameInput.value.slice(0, limit.name);
+            }
+            charCount.textContent = "Characters: " + nameInput.value.length + " / " + limit.name;
+          });
+          emailInput.addEventListener("input", function() {
+            if (emailInput.value.length > limit.email) {
+              emailInput.value = emailInput.value.slice(0, limit.email);
+            }
+            charCount.textContent = "Characters: " + emailInput.value.length + " / " + limit.email;
+          });
+          phoneInput.addEventListener("input", function() {
+            if (phoneInput.value.length > limit.phone) {
+              phoneInput.value = phoneInput.value.slice(0, limit.phone);
+            }
+            charCount.textContent = "Characters: " + phoneInput.value.length + " / " + limit.phone;
+          });
+          goalsInput.addEventListener("input", function() {
+            if (goalsInput.value.length > limit.goals) {
+              goalsInput.value = goalsInput.value.slice(0, limit.goals);
+            }
+            charCount.textContent = "Characters: " + goalsInput.value.length + " / " + limit.goals;
+          });
+        </script>
+      </form>
+    </div>
+  </section>
+{% endblock %}
