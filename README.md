@@ -30,13 +30,14 @@ To run this Flask application locally, follow these steps:
     source venv/bin/activate   # On Windows, use `venv\Scripts\activate`
     ```
 
+3. pip install Flask
 
-3. Run the application:
+4. Run the application:
     ```bash
     flask run
     ```
 
-4. Open your web browser and navigate to `http://localhost:5000` to view the Fitness Page.
+5. Open your web browser and navigate to `http://localhost:5000` to view the Fitness Page.
 
 ## Usage
 Explore the different sections of the Fitness Page using the navigation menu. Update the content in the 'about', 'services', and 'contact' pages to reflect your business information.
