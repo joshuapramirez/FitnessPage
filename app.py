@@ -4,10 +4,10 @@ from helpers import apology
 
 class Config:
     # Configure the database.
-    DATABASE_URL = 'sqlite:///finance.db'
+    DATABASE_URL = 'sqlite:///contect_info.db'
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///contact_info.db")
+db = SQL(Config.DATABASE_URL)
 
 app = Flask(__name__)
 
